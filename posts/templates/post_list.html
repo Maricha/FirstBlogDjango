@@ -1,17 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-	<h1>{{title}} hello</h1>
-
-	{% for obj in object_list %}
-
-		<a href="{{ obj.get_absolute_url }}">{{obj.title}}</a><br>
-		{{obj.content}}<br>
-		{{obj.timestamp}}<br>
-		{{obj.update}}<br>
-		{{obj.id}}<br>
-
+	<div class="col-md-6 col-sm-offset-3">
+		<h1>{{title}}</h1>
+		<div class="row">
+		{% for obj in object_list %}
+		  <div class="col-sm-12">
+		    <div class="thumbnail">
+		      <div class="caption">
+		        <h3><a href="{{ obj.get_absolute_url }}">{{obj.title}}</a> <small>{{obj.timestamp|timesince}} ago</small></h3>
+		        <p>{{ obj.content|linebreaks|truncatechars:120 }}</p>
+		        <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">View</a></p>
+		      </div>
+		    </div>
+		  </div>
+	
+	{% cycle "" "</div><div class='row'>" %}
 	{% endfor %}
-
+	</div>
+	</div>
 {% endblock content %}

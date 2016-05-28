@@ -3,12 +3,10 @@
 {% block head_title %} {{instance.title}} | {{ block.super }} {% endblock head_title %}
 
 {% block content %}
-	<h1>{{title}} hello</h1>
-
-		{{instance.title}}<br>
-		{{instance.content}}<br>
-		{{instance.timestamp}}<br>
-		{{instance.update}}<br>
-
+	<div class="col-sm-6 col-sm-offset-3">
+		<h1>{{title}} <small>{{instance.timestamp}}</small></h1>
+			{{instance.content}}<br>
+			{{instance.update}}<br>
+	</div>
 {% endblock content %}
 
