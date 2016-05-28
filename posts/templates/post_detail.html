@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	<h1>{{title}} hello</h1>
+{% extends "base.html" %}
 
+{% block head_title %} {{instance.title}} | {{ block.super }} {% endblock head_title %}
+
+{% block content %}
+	<h1>{{title}} hello</h1>
 
 		{{instance.title}}<br>
 		{{instance.content}}<br>
 		{{instance.timestamp}}<br>
 		{{instance.update}}<br>
-	
-</body>
-</html>
+
+{% endblock content %}
+
